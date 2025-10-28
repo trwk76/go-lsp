@@ -25,7 +25,18 @@ type (
 	}
 
 	InitializeResult struct {
+		Capabilities ServerCapabilities `json:"capabilities"`
+		ServerInfo   *ServerInfo        `json:"serverInfo,omitempty"`
+	}
 
+	ServerCapabilities struct {
+		PositionEncoding PositionEncoding `json:"positionEncoding"`
+		TextDocumentSync TextDocumentSync `json:"textDocumentSync"`
+	}
+
+	ServerInfo struct {
+		Name    string `json:"name"`
+		Version string `json:"version,omitempty"`
 	}
 
 	TraceVal string
